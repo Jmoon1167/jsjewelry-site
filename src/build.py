@@ -648,6 +648,8 @@ def custom():
             + header("/custom/") + body + FOOTER)
 
 
+GRILLZ_HERO = "grillz-hero.jpg"
+
 # Add new grillz photos here: (file in public/img, alt text, caption title, caption detail)
 GRILLZ = [
     ("grillz-01.jpg", "Polished yellow gold grillz with pavé diamond teeth on a dental model", "Polished gold with pavé diamond teeth", "Top and bottom sets, mixed polished and fully iced teeth"),
@@ -655,16 +657,15 @@ GRILLZ = [
 
 
 def grillz():
-    hero_name, hero_alt, hero_t, hero_d = GRILLZ[0]
     gallery = ""
-    if len(GRILLZ) > 1:
+    if GRILLZ:
         cards = "\n".join(
             f"""        <div class="piece">
           <div class="shot">{img(n, a, 1000, 1250)}</div>
           <h3>{t}</h3>
           <p class="note">{d}</p>
         </div>"""
-            for n, a, t, d in GRILLZ[1:]
+            for n, a, t, d in GRILLZ
         )
         gallery = f"""
   <section>
@@ -690,8 +691,7 @@ def grillz():
         </div>
       </div>
       <div class="rise d">
-        <div class="shot hero-shot">{img(hero_name, hero_alt, 1000, 1250, lazy=False)}</div>
-        <p class="note" style="margin-top:14px">{hero_t}. {hero_d}.</p>
+        <div class="shot hero-shot">{img(GRILLZ_HERO, "A client wearing her custom JS Jewelry grillz", 911, 1139, lazy=False)}</div>
       </div>
     </div>
   </div>
@@ -709,7 +709,7 @@ def grillz():
   </section>
 """ + SHIPPING + cta_band("Ready to get <em>fitted?</em>", "Tell us what you want, how many teeth, and your style. We'll walk you through options and pricing.", "/about/?interest=grillz#consult", "Get a quote")
     return (head("Custom Grillz · Gold &amp; Diamond Grillz in Orange County · JS Jewelry",
-                 "Custom gold and diamond grillz built from an impression of your teeth. Polished gold, pavé diamond teeth, singles or full sets. Asian Garden Mall, Westminster, CA.", "/grillz/", og="/img/grillz-01.jpg")
+                 "Custom gold and diamond grillz built from an impression of your teeth. Polished gold, pavé diamond teeth, singles or full sets. Asian Garden Mall, Westminster, CA.", "/grillz/", og="/img/grillz-hero.jpg")
             + header("/grillz/") + body + FOOTER)
 
 
