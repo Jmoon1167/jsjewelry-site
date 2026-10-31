@@ -177,6 +177,7 @@ h2 em{font-style:italic}
 .cform ::placeholder{color:#5E5A55}
 .cform button{justify-self:start;background:none;cursor:pointer;font-family:var(--body)}
 .cform button[disabled]{opacity:.5;cursor:wait}
+.cform input:-webkit-autofill,.cform input:-webkit-autofill:hover,.cform input:-webkit-autofill:focus,.cform textarea:-webkit-autofill{-webkit-text-fill-color:#EFEBE3;-webkit-box-shadow:0 0 0 1000px #0B0B0C inset;box-shadow:0 0 0 1000px #0B0B0C inset;caret-color:#EFEBE3;transition:background-color 9999s ease 0s}
 .cform-msg{font-size:14.5px;color:#B4B0A8;min-height:1.5em}
 .cform-msg.ok{color:#9FC6A6}.cform-msg.err{color:#E2A39A}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
@@ -482,7 +483,6 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       <form class="cform" id="cform" action="https://formsubmit.co/jmoon1167@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New consultation request · jsjewelry.online">
         <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="row2">
           <label><span class="mark">Name</span><input name="Name" required autocomplete="name"></label>
           <label><span class="mark">Phone</span><input name="Phone" type="tel" autocomplete="tel"></label>
@@ -596,13 +596,18 @@ var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});})();
 <script>
 (function(){var f=document.getElementById('cform');if(!f||!window.fetch)return;
 var msg=f.querySelector('.cform-msg'),btn=f.querySelector('button');
-f.addEventListener('submit',function(e){e.preventDefault();if(f._honey&&f._honey.value)return;
-btn.disabled=true;msg.className='cform-msg';msg.textContent='Sending...';
+function show(cls,html){msg.className='cform-msg'+(cls?' '+cls:'');msg.innerHTML=html;msg.scrollIntoView({block:'nearest',behavior:'smooth'});}
+var fallback='Please call or text <a href="tel:+17472898808" style="color:inherit">(747) 289-8808</a>.';
+f.addEventListener('submit',function(e){e.preventDefault();
+btn.disabled=true;btn.textContent='Sending...';show('','Sending your request...');
 fetch('https://formsubmit.co/ajax/jmoon1167@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
-.then(function(r){return r.json().then(function(d){if(!r.ok||d.success==='false'||d.success===false)throw 0;});})
-.then(function(){f.reset();msg.className='cform-msg ok';msg.textContent='Thank you. We received your request and will reach out soon.';})
-.catch(function(){msg.className='cform-msg err';msg.innerHTML='Something went wrong. Please call or text <a href="tel:+17472898808" style="color:inherit">(747) 289-8808</a>.';})
-.then(function(){btn.disabled=false;});});})();
+.then(function(r){return r.json().catch(function(){return {};}).then(function(d){return {ok:r.ok,d:d};});})
+.then(function(res){var ok=res.ok&&String(res.d.success)!=='false';
+if(ok){f.reset();show('ok','Thank you. We received your request and will reach out soon.');}
+else if(/activat/i.test(res.d.message||'')){show('ok','Thank you. Your request is in. If we do not reach out within a day, '+fallback);}
+else{show('err','That did not go through. '+fallback);}})
+.catch(function(){show('err','That did not go through. '+fallback);})
+.then(function(){btn.disabled=false;btn.textContent='Send request';});});})();
 </script>
 </body>
 </html>
