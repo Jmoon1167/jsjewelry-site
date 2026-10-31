@@ -19,6 +19,7 @@ NAV = [
     ("/engagement/", "Engagement"),
     ("/shop/", "Ready to Ship"),
     ("/custom/", "Custom"),
+    ("/grillz/", "Grillz"),
     ("/about/", "About"),
 ]
 
@@ -120,6 +121,7 @@ FOOTER = f"""</main>
           <li><a href="/engagement/">Engagement &amp; bands</a></li>
           <li><a href="/shop/">Ready to ship</a></li>
           <li><a href="/custom/">Custom work</a></li>
+          <li><a href="/grillz/">Grillz</a></li>
         </ul>
       </div>
       <div>
@@ -374,6 +376,7 @@ def consult(preselect="", heading="Tell us about <em>your piece</em>", band=True
         ("bands", "Wedding bands"),
         ("shop", "A ready-to-ship piece"),
         ("custom", "Pendant, chain or other custom piece"),
+        ("grillz", "Grillz"),
         ("repair", "Reset or repair"),
         ("other", "Something else"),
     ]
@@ -645,6 +648,71 @@ def custom():
             + header("/custom/") + body + FOOTER)
 
 
+# Add new grillz photos here: (file in public/img, alt text, caption title, caption detail)
+GRILLZ = [
+    ("grillz-01.jpg", "Polished yellow gold grillz with pavé diamond teeth on a dental model", "Polished gold with pavé diamond teeth", "Top and bottom sets, mixed polished and fully iced teeth"),
+]
+
+
+def grillz():
+    hero_name, hero_alt, hero_t, hero_d = GRILLZ[0]
+    gallery = ""
+    if len(GRILLZ) > 1:
+        cards = "\n".join(
+            f"""        <div class="piece">
+          <div class="shot">{img(n, a, 1000, 1250)}</div>
+          <h3>{t}</h3>
+          <p class="note">{d}</p>
+        </div>"""
+            for n, a, t, d in GRILLZ[1:]
+        )
+        gallery = f"""
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2>Recent <em>sets</em></h2></div>
+      <div class="hair"></div>
+      <div class="grid3">
+{cards}
+      </div>
+    </div>
+  </section>
+"""
+    body = f"""
+  <div class="wrap">
+    <div class="hero">
+      <div class="rise">
+        <div class="eyebrow"><span class="bar"></span><span class="mark">Custom grillz · Orange County</span></div>
+        <h1>Built to <em>your bite.</em></h1>
+        <p class="lede">Custom gold grillz made from an impression of your teeth, so every tooth fits the way it should. Polished gold, solid pavé diamonds, or any mix, tooth by tooth.</p>
+        <div class="cta">
+          <a class="btn" href="/about/?interest=grillz#consult">Get a quote</a>
+          <a class="btn-plain" href="tel:{PHONE_TEL}">Call or text {PHONE}</a>
+        </div>
+      </div>
+      <div class="rise d">
+        <div class="shot hero-shot">{img(hero_name, hero_alt, 1000, 1250, lazy=False)}</div>
+        <p class="note" style="margin-top:14px">{hero_t}. {hero_d}.</p>
+      </div>
+    </div>
+  </div>
+""" + gallery + f"""
+  <section class="band">
+    <div class="wrap">
+      <div class="sec-head"><h2>Made <em>your way</em></h2></div>
+      <div class="hair"></div>
+      <div class="steps">
+        <div class="step"><div class="num gold-text">01</div><h3>Fit</h3><p>Every set starts with an impression of your teeth and is built on a model of your bite, for a fit that sits flush and stays put.</p></div>
+        <div class="step"><div class="num gold-text">02</div><h3>Finish</h3><p>High-polish gold, full pavé diamond teeth, or a mix of both. Choose single teeth, a few, or full top and bottom sets.</p></div>
+        <div class="step"><div class="num gold-text">03</div><h3>Stones</h3><p>Every diamond is chosen for fire and brilliance, even the smallest pavé stone, so the whole set lights up.</p></div>
+      </div>
+    </div>
+  </section>
+""" + SHIPPING + cta_band("Ready to get <em>fitted?</em>", "Tell us what you want, how many teeth, and your style. We'll walk you through options and pricing.", "/about/?interest=grillz#consult", "Get a quote")
+    return (head("Custom Grillz · Gold &amp; Diamond Grillz in Orange County · JS Jewelry",
+                 "Custom gold and diamond grillz built from an impression of your teeth. Polished gold, pavé diamond teeth, singles or full sets. Asian Garden Mall, Westminster, CA.", "/grillz/", og="/img/grillz-01.jpg")
+            + header("/grillz/") + body + FOOTER)
+
+
 def about():
     body = STORY.replace('<section id="story">', '<section id="story" style="padding-top:88px">').replace('<h2 style="margin-top:16px">', '<h1 class="h2" style="margin-top:16px">', 1).replace("the bench</em></h2>", "the bench</em></h1>", 1) + PHOTOS + consult() + SHIPPING + VISIT
     return (head("About JS Jewelry · Visit Us at Asian Garden Mall, Westminster",
@@ -669,6 +737,7 @@ PAGES = {
     "engagement/index.html": engagement,
     "shop/index.html": shop,
     "custom/index.html": custom,
+    "grillz/index.html": grillz,
     "about/index.html": about,
 }
 
