@@ -118,7 +118,7 @@ h2 em{font-style:italic}
 .snow-wrap{position:relative;overflow:hidden}
 .snow{position:absolute;inset:0;pointer-events:none;z-index:0}
 .snow-wrap>.wrap{position:relative;z-index:1}
-#holiday{border-top:0;padding:64px 0 88px}
+#holiday{border-top:0;padding:64px 0 88px;background:#000}
 @media (max-width:920px){#holiday{padding:40px 0 64px}}
 .flake{position:absolute;top:-12px;border-radius:50%;background:radial-gradient(circle,#F7E7BE 0%,#D9B45F 45%,rgba(217,180,95,0) 72%)}
 @media (prefers-reduced-motion:no-preference){
@@ -136,8 +136,8 @@ h2 em{font-style:italic}
 .set li span:last-child{color:#CFCBC3;font-size:15.5px}
 .set .fine{color:#8F8B84;font-size:13.5px;margin-top:24px;max-width:46ch}
 .opener{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000;
-  -webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 50%,#000 62%,transparent 100%);
-          mask-image:radial-gradient(ellipse 72% 78% at 50% 50%,#000 62%,transparent 100%)}
+  -webkit-mask-image:radial-gradient(ellipse 58% 60% at 50% 50%,#000 60%,transparent 100%);
+          mask-image:radial-gradient(ellipse 58% 60% at 50% 50%,#000 60%,transparent 100%)}
 @media (prefers-reduced-motion:reduce){.opener{display:none}.opener-fallback{display:block!important}}
 .set{grid-template-columns:1.25fr 1fr}
 @media (max-width:920px){.set{grid-template-columns:1fr;gap:40px}.set-art svg{max-width:340px}}
@@ -196,7 +196,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     <div class="snow" aria-hidden="true"></div>
     <div class="wrap set">
       <div class="set-art">
-        <video class="opener" autoplay muted loop playsinline preload="auto" aria-label="Three gold rings turning in the light: oval halo engagement ring, matching pavé band, and men's band">
+        <video class="opener" autoplay muted loop playsinline preload="auto" poster="media/holiday-opener-poster.jpg" aria-label="Three gold rings turning in the light: oval halo engagement ring, matching pavé band, and men's band">
           <source src="media/holiday-opener.mp4" type="video/mp4">
         </video>
         <div class="opener-fallback" hidden>
