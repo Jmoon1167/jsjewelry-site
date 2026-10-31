@@ -110,6 +110,31 @@ h2 em{font-style:italic}
 @media (max-width:920px){.contact-grid{grid-template-columns:1fr 1fr;gap:40px}}
 @media (max-width:560px){.contact-grid{grid-template-columns:1fr;gap:34px}}
 
+/* ---- Holiday 2026 ---- */
+.holiday-bar{display:block;background:var(--raise);border-bottom:1px solid var(--line);text-align:center;padding:11px 22px;text-decoration:none;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone);line-height:1.6}
+.holiday-bar b{font-weight:400;color:var(--gold)}
+.holiday-bar .go{color:var(--gold);white-space:nowrap}
+.holiday-bar:hover .go,.holiday-bar:focus-visible .go{text-decoration:underline;text-underline-offset:4px}
+.snow-wrap{position:relative;overflow:hidden}
+.snow{position:absolute;inset:0;pointer-events:none;z-index:0}
+.snow-wrap .hero{position:relative;z-index:1}
+.flake{position:absolute;top:-12px;border-radius:50%;background:radial-gradient(circle,#F7E7BE 0%,#D9B45F 45%,rgba(217,180,95,0) 72%)}
+@media (prefers-reduced-motion:no-preference){
+  .flake{animation:fall linear infinite}
+  @keyframes fall{0%{transform:translate3d(0,-20px,0)}100%{transform:translate3d(var(--drift),110vh,0)}}
+}
+@media (prefers-reduced-motion:reduce){.snow{display:none}}
+.set{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+.set-art svg{width:100%;height:auto;max-width:520px;margin:0 auto;display:block}
+.set .price-big{font-family:var(--display);font-weight:300;font-size:clamp(64px,8vw,104px);line-height:1;margin-top:22px}
+.set .tag{font-family:var(--display);font-style:italic;font-size:24px;color:#B4B0A8;margin-top:10px}
+.set ul{list-style:none;margin-top:30px;display:grid;gap:16px;border-top:1px solid var(--line);padding-top:28px}
+.set li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline}
+.set li .mark{color:var(--gold);min-width:92px}
+.set li span:last-child{color:#CFCBC3;font-size:15.5px}
+.set .fine{color:#8F8B84;font-size:13.5px;margin-top:24px;max-width:46ch}
+@media (max-width:920px){.set{grid-template-columns:1fr;gap:40px}.set-art svg{max-width:340px}}
+
 footer{border-top:1px solid var(--line);padding:66px 0 44px}
 .foot{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:56px}
 .foot h4{margin-bottom:20px}
@@ -141,6 +166,8 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 </head>
 <body>
 
+<a class="holiday-bar" href="#holiday"><b>Holiday Engagement Set</b> · 3 rings, one price: $2,400 · <span class="go">See the offer →</span></a>
+
 <header>
   <div class="wrap nav">
     <a class="brand" href="#" aria-label="JS Jewelry home">
@@ -150,7 +177,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     <ul>
       <li><a class="link" href="#available">Available now</a></li>
       <li><a class="link" href="#work">Made to order</a></li>
-      <li><a class="link" href="#">Engagement</a></li>
+      <li><a class="link" href="#holiday">Engagement</a></li>
       <li><a class="link" href="#">About</a></li>
     </ul>
     <div class="nav-r"><a class="link" href="#contact">Contact</a></div>
@@ -158,10 +185,12 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 </header>
 
 <main>
+  <div class="snow-wrap">
+  <div class="snow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero">
       <div class="rise">
-        <div class="eyebrow"><span class="bar"></span><span class="mark">Custom fine jewelry · Orange County</span></div>
+        <div class="eyebrow"><span class="bar"></span><span class="mark">Holiday 2026 · Custom fine jewelry · Orange County</span></div>
         <h1>Finished pieces,<br>and pieces that<br><em>don't exist yet.</em></h1>
         <p class="lede">A small case of work that's ready to ship, and a bench that builds the rest to order. Every stone set by hand in Orange County.</p>
         <div class="cta">
@@ -174,6 +203,54 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       </div>
     </div>
   </div>
+  </div>
+
+  <section id="holiday" class="band">
+    <div class="wrap set">
+      <div class="set-art">
+        <svg viewBox="0 0 520 360" role="img" aria-label="Three interlocking gold rings">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#8A6421"/><stop offset=".35" stop-color="#D9B45F"/>
+                <stop offset=".55" stop-color="#F7E7BE"/><stop offset=".8" stop-color="#C99A3E"/><stop offset="1" stop-color="#8A6421"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#g)">
+              <ellipse cx="170" cy="215" rx="108" ry="108" stroke-width="7"/>
+              <ellipse cx="170" cy="215" rx="96" ry="96" stroke-width="1" opacity=".5"/>
+              <ellipse cx="290" cy="215" rx="100" ry="100" stroke-width="3"/>
+              <ellipse cx="380" cy="215" rx="92" ry="92" stroke-width="12"/>
+              <ellipse cx="380" cy="215" rx="80" ry="80" stroke-width="1" opacity=".5"/>
+              <path d="M150 112 L170 84 L190 112" stroke-width="3"/>
+            </g>
+            <g transform="translate(170 70)">
+              <polygon points="0,-30 22,-12 0,22 -22,-12" fill="none" stroke="url(#g)" stroke-width="2"/>
+              <path d="M-22,-12 H22 M0,-30 L-8,-12 L0,22 L8,-12 Z" fill="none" stroke="url(#g)" stroke-width="1"/>
+            </g>
+            <g fill="#F7E7BE">
+              <circle cx="212" cy="46" r="2"/><circle cx="128" cy="40" r="1.5"/><circle cx="236" cy="84" r="1.2"/>
+            </g>
+          </svg>
+      </div>
+      <div>
+        <span class="mark">Holiday 2026 · Limited offer</span>
+        <h2 style="margin-top:16px">The Holiday <em>Engagement Set</em></h2>
+        <div class="price-big gold-text">$2,400</div>
+        <p class="tag">Three rings. One price. Any style.</p>
+        <ul>
+          <li><span class="mark">Her ring</span><span>2&nbsp;ct lab-grown diamond center, D color, VVS clarity. Solitaire, halo, 3/4 eternity, or any combination.</span></li>
+          <li><span class="mark">Her band</span><span>Matching wedding band, up to 2&nbsp;mm.</span></li>
+          <li><span class="mark">His band</span><span>5&nbsp;mm men's wedding band.</span></li>
+          <li><span class="mark">Metal</span><span>14K gold in yellow, white, or rose.</span></li>
+        </ul>
+        <p class="fine">Same price for any style or combination. Want a bigger center stone? Add $300 per carat, prorated.</p>
+        <div class="cta" style="margin-top:34px">
+          <a class="btn" href="tel:+17472898808">Call or text to design yours</a>
+          <a class="btn-plain" href="https://www.instagram.com/jsjewelryoc/" target="_blank" rel="noopener">DM us on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="available">
     <div class="wrap">
@@ -379,7 +456,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
       <div>
         <h4 class="mark">Work</h4>
         <ul>
-          <li><a href="#">Engagement rings</a></li>
+          <li><a href="#holiday">Engagement rings</a></li>
           <li><a href="#">Pendants</a></li>
           <li><a href="#">Chains &amp; rosaries</a></li>
           <li><a href="#">Resets &amp; repairs</a></li>
@@ -402,5 +479,23 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
   </div>
 </footer>
 
+<script>
+(function(){
+  var box=document.querySelector('.snow'); if(!box) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var n=window.innerWidth<700?18:34;
+  for(var i=0;i<n;i++){
+    var f=document.createElement('span'); f.className='flake';
+    var sz=(Math.random()*4+2).toFixed(1);
+    f.style.width=f.style.height=sz+'px';
+    f.style.left=(Math.random()*100).toFixed(2)+'%';
+    f.style.opacity=(Math.random()*.5+.25).toFixed(2);
+    f.style.setProperty('--drift',((Math.random()*80)-40).toFixed(0)+'px');
+    f.style.animationDuration=(Math.random()*10+12).toFixed(1)+'s';
+    f.style.animationDelay=(-Math.random()*20).toFixed(1)+'s';
+    box.appendChild(f);
+  }
+})();
+</script>
 </body>
 </html>
