@@ -226,3 +226,14 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 .ship-item .mark{color:var(--gold)}
 .ship-item p{color:#B4B0A8;margin-top:10px;max-width:36ch}
 @media (max-width:920px){.ship-grid{grid-template-columns:1fr;gap:30px}}
+
+/* ---- Commission steps & deposits ---- */
+.steps.four{grid-template-columns:repeat(4,1fr);gap:40px}
+.pay{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:40px;margin-top:72px;padding:40px;border:1px solid var(--line);background:#000}
+.pay-head h3{font-family:var(--display);font-weight:300;font-size:30px;line-height:1.15;margin-top:12px}
+.pay-head h3 em{font-style:italic}
+.pay-num{font-family:var(--display);font-size:42px;line-height:1;margin-bottom:12px}
+.pay-item .mark{color:var(--bone)}
+.pay-item p{color:#A9A59D;font-size:14.5px;margin-top:10px}
+@media (max-width:1100px){.steps.four{grid-template-columns:1fr 1fr}.pay{grid-template-columns:1fr 1fr}}
+@media (max-width:920px){.steps.four,.pay{grid-template-columns:1fr;gap:34px}.pay{padding:28px 22px}}
