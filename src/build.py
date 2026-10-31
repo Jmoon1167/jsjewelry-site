@@ -69,7 +69,7 @@ def header(active):
         for href, label in NAV
     )
     mlinks = "\n".join(f'    <a href="{href}"{cur(href)}>{label}</a>' for href, label in NAV)
-    return f"""<a class="holiday-bar" href="/holiday/"><b>Holiday Engagement Set</b> · 3 rings, one price: $2,400 · <span class="go">See the offer →</span></a>
+    return f"""<a class="holiday-bar" href="/holiday/"><b>Holiday Engagement Set</b> · 3 rings, one price: $2,800 · <span class="go">See the offer →</span></a>
 
 <header>
   <div class="wrap nav">
@@ -194,7 +194,7 @@ def holiday_block(full, h="h2"):
       <div>
         <span class="mark">Holiday 2026 · Limited offer</span>
         <{h} class="h2" style="margin-top:16px">The Holiday <em>Engagement Set</em></{h}>
-        <div class="price-big gold-text">$2,400</div>
+        <div class="price-big gold-text">$2,800</div>
         <p class="tag">Three rings. One price. Any style.</p>
         {body}
       </div>
@@ -331,7 +331,7 @@ PHOTOS = f"""
 
 def consult(preselect="", heading="Tell us about <em>your piece</em>", band=True):
     opts = [
-        ("holiday", "Holiday Engagement Set ($2,400)"),
+        ("holiday", "Holiday Engagement Set ($2,800)"),
         ("engagement", "Custom engagement ring"),
         ("bands", "Wedding bands"),
         ("shop", "A ready-to-ship piece"),
@@ -474,7 +474,7 @@ def home():
   </section>
 """ + VISIT.replace('<section id="visit">', '<section id="visit" class="band">')
     return (head("JS Jewelry · Custom fine jewelry, Orange County",
-                 "Custom engagement rings, wedding bands and fine jewelry at Asian Garden Mall in Westminster, CA. Holiday Engagement Set: three rings for $2,400.", "/")
+                 "Custom engagement rings, wedding bands and fine jewelry at Asian Garden Mall in Westminster, CA. Holiday Engagement Set: three rings for $2,800.", "/")
             + header("/") + body + FOOTER)
 
 
@@ -485,7 +485,7 @@ def holiday():
       <div class="sec-head"><h2>Make it <em>yours</em></h2></div>
       <div class="hair"></div>
       <div class="steps">
-        <div class="step"><div class="num gold-text">01</div><h3>Pick your style</h3><p>Solitaire, halo, 3/4 eternity, or any combination. The price stays $2,400 whichever you choose.</p></div>
+        <div class="step"><div class="num gold-text">01</div><h3>Pick your style</h3><p>Solitaire, halo, 3/4 eternity, or any combination. The price stays $2,800 whichever you choose.</p></div>
         <div class="step"><div class="num gold-text">02</div><h3>Pick your gold</h3><p>14K yellow, white, or rose gold, matched across all three rings.</p></div>
         <div class="step"><div class="num gold-text">03</div><h3>Size your center</h3><p>A 2&nbsp;ct lab-grown center, D color, VVS clarity. Want more? Add $300 per carat, prorated.</p></div>
       </div>
@@ -493,8 +493,8 @@ def holiday():
   </section>
 """
     body = holiday_block(full=True, h="h1") + steps + DIAMONDS + consult("holiday", "Design your <em>set</em>", band=False)
-    return (head("Holiday Engagement Set · 3 rings for $2,400 · JS Jewelry",
-                 "Engagement ring with a 2 ct lab-grown center (D, VVS), her matching band and his 5 mm band in 14K gold. Any style, one price: $2,400.", "/holiday/")
+    return (head("Holiday Engagement Set · 3 rings for $2,800 · JS Jewelry",
+                 "Engagement ring with a 2 ct lab-grown center (D, VVS), her matching band and his 5 mm band in 14K gold. Any style, one price: $2,800.", "/holiday/")
             + header("/holiday/") + body + FOOTER)
 
 
@@ -509,7 +509,7 @@ def engagement():
     <div class="wrap callout">
       <div>
         <span class="mark">Holiday 2026</span>
-        <h2 style="margin-top:12px">Ring and both bands, <span class="gold-text">$2,400</span></h2>
+        <h2 style="margin-top:12px">Ring and both bands, <span class="gold-text">$2,800</span></h2>
         <p class="fine" style="margin-top:12px">2&nbsp;ct lab-grown center, D color, VVS clarity, any style, 14K gold of your choice.</p>
       </div>
       <a class="btn" href="/holiday/">See the Holiday Set</a>
