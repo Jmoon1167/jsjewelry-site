@@ -106,7 +106,7 @@ FOOTER = f"""</main>
     <div class="foot">
       <div>
         <img class="logo-full" loading="lazy" src="/img/logo-full.png" width="640" height="573" alt="JS Jewelry">
-        <p style="color:#96928A;font-size:14px;max-width:34ch;margin-top:20px">Custom fine jewelry and diamond setting, made in Orange County, California. Shipping anywhere in the U.S. and worldwide.</p>
+        <p style="color:#96928A;font-size:14px;max-width:34ch;margin-top:20px">Custom fine jewelry and diamond setting, made in Orange County, California. Free insured next-day shipping in the U.S., and worldwide shipping.</p>
         <ul style="margin-top:22px">
           <li><a href="tel:{PHONE_TEL}">{PHONE}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
@@ -414,8 +414,8 @@ SHIPPING = """
           <h2 style="margin-top:14px">Delivered <em>anywhere</em></h2>
         </div>
         <div class="ship-item">
-          <span class="mark">Across the U.S.</span>
-          <p>We ship anywhere in the United States, typically by next-day air, as soon as your piece is in stock or finished.</p>
+          <span class="mark">Free across the U.S.</span>
+          <p>Free next-day air shipping anywhere in the United States, fully insured, as soon as your piece is in stock or finished.</p>
         </div>
         <div class="ship-item">
           <span class="mark">Worldwide</span>
@@ -560,7 +560,7 @@ def engagement():
 def shop():
     items = "\n".join(piece(n, a, t, m, price=p, ask=True) for n, a, t, m, p in SHOP_ITEMS)
     body = (page_head("Ready to ship · In hand today", "Finished, and <em>ready.</em>",
-                      f"Pieces in the case right now. To buy one, tap “Ask about this piece,” call or text {PHONE}, or come see it at the store. In-stock pieces ship next-day air anywhere in the U.S.")
+                      f"Pieces in the case right now. To buy one, tap “Ask about this piece,” call or text {PHONE}, or come see it at the store. In-stock pieces ship free by next-day air anywhere in the U.S., fully insured.")
             + f"""
   <section style="padding-top:24px">
     <div class="wrap">
