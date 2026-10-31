@@ -237,3 +237,10 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
 .pay-item p{color:#A9A59D;font-size:14.5px;margin-top:10px}
 @media (max-width:1100px){.steps.four{grid-template-columns:1fr 1fr}.pay{grid-template-columns:1fr 1fr}}
 @media (max-width:920px){.steps.four,.pay{grid-template-columns:1fr;gap:34px}.pay{padding:28px 22px}}
+
+/* ---- Timing ---- */
+.timing{margin-top:56px}
+.timing-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:22px;padding-top:28px;border-top:1px solid var(--line)}
+.timing-row .mark{color:var(--bone)}
+.timing-row p{color:#A9A59D;font-size:14.5px;margin-top:10px;max-width:44ch}
+@media (max-width:920px){.timing-row{grid-template-columns:1fr;gap:30px}}
