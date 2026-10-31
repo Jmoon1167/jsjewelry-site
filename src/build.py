@@ -106,7 +106,7 @@ FOOTER = f"""</main>
     <div class="foot">
       <div>
         <img class="logo-full" loading="lazy" src="/img/logo-full.png" width="640" height="573" alt="JS Jewelry">
-        <p style="color:#96928A;font-size:14px;max-width:34ch;margin-top:20px">Custom fine jewelry and diamond setting, made in Orange County, California.</p>
+        <p style="color:#96928A;font-size:14px;max-width:34ch;margin-top:20px">Custom fine jewelry and diamond setting, made in Orange County, California. Shipping anywhere in the U.S. and worldwide.</p>
         <ul style="margin-top:22px">
           <li><a href="tel:{PHONE_TEL}">{PHONE}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
@@ -128,6 +128,7 @@ FOOTER = f"""</main>
           <li><a href="/about/#story">Our story</a></li>
           <li><a href="/custom/#commission">How commissions work</a></li>
           <li><a href="/about/#consult">Book a consultation</a></li>
+          <li><a href="/about/#shipping">Shipping</a></li>
           <li><a href="/about/#visit">Visit the store</a></li>
         </ul>
       </div>
@@ -404,6 +405,28 @@ VISIT = f"""
 """
 
 
+SHIPPING = """
+  <section id="shipping" class="ship">
+    <div class="wrap">
+      <div class="ship-grid">
+        <div>
+          <span class="mark">Shipping</span>
+          <h2 style="margin-top:14px">Delivered <em>anywhere</em></h2>
+        </div>
+        <div class="ship-item">
+          <span class="mark">Across the U.S.</span>
+          <p>We ship anywhere in the United States, typically by next-day air, as soon as your piece is in stock or finished.</p>
+        </div>
+        <div class="ship-item">
+          <span class="mark">Worldwide</span>
+          <p>We ship internationally too. Ask us for timing and rates to your country.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+"""
+
+
 def cta_band(title_html, text, href, label):
     return f"""
   <section class="band cta-band">
@@ -492,7 +515,7 @@ def holiday():
     </div>
   </section>
 """
-    body = holiday_block(full=True, h="h1") + steps + DIAMONDS + consult("holiday", "Design your <em>set</em>", band=False)
+    body = holiday_block(full=True, h="h1") + steps + SHIPPING + DIAMONDS + consult("holiday", "Design your <em>set</em>", band=False)
     return (head("Holiday Engagement Set · 3 rings for $2,800 · JS Jewelry",
                  "Engagement ring with a 2 ct lab-grown center (D, VVS), her matching band and his 5 mm band in 14K gold. Any style, one price: $2,800.", "/holiday/")
             + header("/holiday/") + body + FOOTER)
@@ -528,7 +551,7 @@ def engagement():
       </div>
     </div>
   </section>
-""" + DIAMONDS + cta_band("Start with a <em>conversation</em>", "Bring a screenshot, a sketch, or just a feeling. We'll quote the stone and the setting separately so you know exactly what you're paying for.", "/about/?interest=engagement#consult", "Book a consultation"))
+""" + SHIPPING + DIAMONDS + cta_band("Start with a <em>conversation</em>", "Bring a screenshot, a sketch, or just a feeling. We'll quote the stone and the setting separately so you know exactly what you're paying for.", "/about/?interest=engagement#consult", "Book a consultation"))
     return (head("Engagement Rings &amp; Wedding Bands · JS Jewelry, Orange County",
                  "Custom engagement rings and wedding bands in 14K gold, designed in Orange County. Solitaires, halos, hidden halos and eternity bands. Lab-grown or natural.", "/engagement/")
             + header("/engagement/") + body + FOOTER)
@@ -537,7 +560,7 @@ def engagement():
 def shop():
     items = "\n".join(piece(n, a, t, m, price=p, ask=True) for n, a, t, m, p in SHOP_ITEMS)
     body = (page_head("Ready to ship · In hand today", "Finished, and <em>ready.</em>",
-                      f"Pieces in the case right now. To buy one, tap “Ask about this piece,” call or text {PHONE}, or come see it at the store.")
+                      f"Pieces in the case right now. To buy one, tap “Ask about this piece,” call or text {PHONE}, or come see it at the store. In-stock pieces ship next-day air anywhere in the U.S.")
             + f"""
   <section style="padding-top:24px">
     <div class="wrap">
@@ -547,7 +570,7 @@ def shop():
       </div>
     </div>
   </section>
-""" + cta_band("Want something <em>like it?</em>", "Any piece here can be the starting point for a custom version: a different stone, metal, or size.", "/custom/", "See custom work"))
+""" + SHIPPING + cta_band("Want something <em>like it?</em>", "Any piece here can be the starting point for a custom version: a different stone, metal, or size.", "/custom/", "See custom work"))
     return (head("Ready to Ship · Fine Jewelry in Stock · JS Jewelry",
                  "Finished 14K gold and lab diamond jewelry in stock at JS Jewelry, Westminster: earrings, pendants, eternity bands, engagement rings and tennis bracelets.", "/shop/")
             + header("/shop/") + body + FOOTER)
@@ -579,14 +602,14 @@ def custom():
       </div>
     </div>
   </section>
-""" + STEPS.replace('<section id="commission">', '<section id="commission" class="band">'))
+""" + STEPS.replace('<section id="commission">', '<section id="commission" class="band">') + SHIPPING)
     return (head("Custom Jewelry · Made to Order in Orange County · JS Jewelry",
                  "Custom engagement rings, pendants, rosaries and one-of-one fine jewelry, designed with you and built to order. Asian Garden Mall, Westminster, CA.", "/custom/")
             + header("/custom/") + body + FOOTER)
 
 
 def about():
-    body = STORY.replace('<section id="story">', '<section id="story" style="padding-top:88px">').replace('<h2 style="margin-top:16px">', '<h1 class="h2" style="margin-top:16px">', 1).replace("the bench</em></h2>", "the bench</em></h1>", 1) + PHOTOS + consult() + VISIT
+    body = STORY.replace('<section id="story">', '<section id="story" style="padding-top:88px">').replace('<h2 style="margin-top:16px">', '<h1 class="h2" style="margin-top:16px">', 1).replace("the bench</em></h2>", "the bench</em></h1>", 1) + PHOTOS + consult() + SHIPPING + VISIT
     return (head("About JS Jewelry · Visit Us at Asian Garden Mall, Westminster",
                  "Fifteen years designing fine jewelry. Visit JS Jewelry at Asian Garden Mall, 9200 Bolsa Ave, Westminster, CA, or book a consultation.", "/about/")
             + header("/about/") + body + FOOTER)
