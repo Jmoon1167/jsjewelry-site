@@ -135,6 +135,11 @@ h2 em{font-style:italic}
 .set li .mark{color:var(--gold);min-width:92px}
 .set li span:last-child{color:#CFCBC3;font-size:15.5px}
 .set .fine{color:#8F8B84;font-size:13.5px;margin-top:24px;max-width:46ch}
+.opener{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#000;
+  -webkit-mask-image:radial-gradient(ellipse 72% 78% at 50% 50%,#000 62%,transparent 100%);
+          mask-image:radial-gradient(ellipse 72% 78% at 50% 50%,#000 62%,transparent 100%)}
+@media (prefers-reduced-motion:reduce){.opener{display:none}.opener-fallback{display:block!important}}
+.set{grid-template-columns:1.25fr 1fr}
 @media (max-width:920px){.set{grid-template-columns:1fr;gap:40px}.set-art svg{max-width:340px}}
 
 footer{border-top:1px solid var(--line);padding:66px 0 44px}
@@ -191,6 +196,10 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     <div class="snow" aria-hidden="true"></div>
     <div class="wrap set">
       <div class="set-art">
+        <video class="opener" autoplay muted loop playsinline preload="auto" aria-label="Three gold rings turning in the light: oval halo engagement ring, matching pavé band, and men's band">
+          <source src="media/holiday-opener.mp4" type="video/mp4">
+        </video>
+        <div class="opener-fallback" hidden>
         <svg viewBox="0 0 520 360" role="img" aria-label="Three interlocking gold rings">
             <defs>
               <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
@@ -213,7 +222,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
             <g fill="#F7E7BE">
               <circle cx="212" cy="46" r="2"/><circle cx="128" cy="40" r="1.5"/><circle cx="236" cy="84" r="1.2"/>
             </g>
-          </svg>
+          </svg></div>
       </div>
       <div>
         <span class="mark">Holiday 2026 · Limited offer</span>
@@ -497,6 +506,12 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offse
     box.appendChild(f);
   }
 })();
+</script>
+<script>
+(function(){var v=document.querySelector('.opener'),f=document.querySelector('.opener-fallback');
+if(!v||!f)return;function fb(){v.style.display='none';f.hidden=false;}
+v.addEventListener('error',fb,true);var s=v.querySelector('source');if(s)s.addEventListener('error',fb);
+var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});})();
 </script>
 </body>
 </html>
