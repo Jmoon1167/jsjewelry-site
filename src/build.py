@@ -507,8 +507,11 @@ def home():
           <a class="btn-plain" href="/custom/">Start a commission</a>
         </div>
       </div>
-      <div class="shot hero-shot rise d">
-        {img("cushion-hidden-halo.jpg", "Cushion-cut diamond ring with a hidden halo and pavé band", 1000, 1250, lazy=False)}
+      <div class="hero-3d rise d">
+        <div class="shot hero-shot">
+          {img("cushion-hidden-halo.jpg", "Cushion-cut diamond ring with a hidden halo and pavé band", 1000, 1250, lazy=False)}
+        </div>
+        <span class="mark hero-3d-hint" aria-hidden="true">Drag to turn</span>
       </div>
     </div>
   </div>
@@ -538,7 +541,8 @@ def home():
 """ + VISIT.replace('<section id="visit">', '<section id="visit" class="band">')
     return (head("JS Jewelry · Custom fine jewelry, Orange County",
                  "Custom engagement rings, wedding bands and fine jewelry at Asian Garden Mall in Westminster, CA. Holiday Engagement Set: three rings for $2,800.", "/")
-            + header("/") + body + FOOTER)
+            + header("/") + body
+            + FOOTER.replace('</body>', '<script type="module" src="/js/ring3d.js"></script>\n</body>'))
 
 
 def holiday():
