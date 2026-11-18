@@ -34,6 +34,7 @@
     var key=params.get('interest');
     if(key&&sel){Array.prototype.forEach.call(sel.options,function(o){if(o.getAttribute('data-key')===key)o.selected=true;});}
     var piece=params.get('piece');if(piece&&ta&&!ta.value)ta.value="I'm interested in the "+piece+". ";
+    var design=params.get('design');if(design&&ta&&/^https:\/\/design\.jsjewelry\.online\//.test(design))ta.value+="\n\nMy design: "+design;
     function show(cls,html){msg.className='cform-msg'+(cls?' '+cls:'');msg.innerHTML=html;msg.scrollIntoView({block:'nearest',behavior:'smooth'});}
     if(!window.fetch)return;
     f.addEventListener('submit',function(e){e.preventDefault();
