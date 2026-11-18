@@ -17,6 +17,7 @@ OG_DEFAULT = "/media/holiday-opener-poster.jpg"
 NAV = [
     ("/holiday/", "Holiday Set"),
     ("/engagement/", "Engagement"),
+    ("https://design.jsjewelry.online/", "Design a Ring"),
     ("/shop/", "Ready to Ship"),
     ("/custom/", "Custom"),
     ("/grillz/", "Grillz"),
@@ -576,6 +577,16 @@ def engagement():
         <p class="fine" style="margin-top:12px">2&nbsp;ct lab-grown center, D color, VVS clarity, any style, 14K gold of your choice.</p>
       </div>
       <a class="btn" href="/holiday/">See the Holiday Set</a>
+    </div>
+  </section>
+  <section class="band">
+    <div class="wrap callout">
+      <div>
+        <span class="mark">Ring Designer</span>
+        <h2 style="margin-top:12px">Design your ring <em>in 3D</em></h2>
+        <p class="fine" style="margin-top:12px">Pick the setting, cut, carat and metal, watch it sparkle, and try it on with your camera. Any 2&nbsp;ct lab-grown ring in 14K gold is <span class="gold-text">$1,800</span>.</p>
+      </div>
+      <a class="btn" href="https://design.jsjewelry.online/">Open the designer</a>
     </div>
   </section>
 """
